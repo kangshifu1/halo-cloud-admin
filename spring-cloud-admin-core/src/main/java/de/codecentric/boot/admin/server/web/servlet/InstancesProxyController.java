@@ -1,19 +1,3 @@
-/*
- * Copyright 2014-2018 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package de.codecentric.boot.admin.server.web.servlet;
 
 import de.codecentric.boot.admin.server.services.InstanceRegistry;
@@ -48,7 +32,9 @@ import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
+ * 实例代理Controller
  * Http Handler for proxied requests
+ * @author xujin
  */
 @AdminController
 public class InstancesProxyController extends AbstractInstancesProxyController {
@@ -61,6 +47,15 @@ public class InstancesProxyController extends AbstractInstancesProxyController {
         super(adminContextPath, ignoredHeaders, registry, instanceWebClient);
     }
 
+    /**
+     * 所以端点的请求代理入口:/instances/{instanceId}/actuator/**
+     * @author xujin
+     * @param instanceId
+     * @param servletRequest
+     * @param servletResponse
+     * @return
+     * @throws IOException
+     */
     @ResponseBody
     @RequestMapping(path = REQUEST_MAPPING_PATH, method = {RequestMethod.GET, RequestMethod.HEAD, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE, RequestMethod.OPTIONS})
     public Mono<Void> endpointProxy(@PathVariable("instanceId") String instanceId,
