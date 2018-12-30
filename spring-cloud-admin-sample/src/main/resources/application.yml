@@ -14,9 +14,9 @@ eureka:
       defaultZone: http://eureka.springcloud.cn/eureka/
 
 
-#info.groupId: @project.groupId@
-#info.artifactId: @project.artifactId@
-#info.version: @project.version@
+info.groupId: @project.groupId@
+info.artifactId: @project.artifactId@
+info.version: @project.version@
 
 
 #开启端点
