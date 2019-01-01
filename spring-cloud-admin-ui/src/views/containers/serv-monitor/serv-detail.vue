@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { getApplication } from '@/api/servMgmt/servList.ts';
+import { getApplication,getInfo } from '@/api/servMgmt/servList.ts';
 import { Component } from 'vue-property-decorator';
 import ServItem from '../../components/serv-list/serv-item.vue';
 import ServBuild from '../../components/serv-monitor/detail/serv-build-info.vue';
@@ -33,28 +33,34 @@ import ServEvent from '../../components/serv-monitor/detail/serv-event-table.vue
 @Component({ components: { ServItem, ServEvent, ServBuild, ServGit } })
 export default class ServList extends Vue {
   application:any = {}
-
+  info:any = {}
   beforeMount() {
     const id = this.$route.params.id;
     getApplication(id).then((data) => {
       this.application = data.data;
-    });
+    }),
+    getInfo(id).then((data)=>{
+      this.info = data.data
+    })
   }
 
   get group() {
-    return this.application.metadata ? this.application.metadata.GROUP : '';
+    return this.application ? this.application.groupId : '';
+  }
+  get artifactId(){
+    return this.application ? this.application.artifactId : "";
   }
   get version() {
-    return this.application.metadata ? this.application.metadata.VERSION : '';
+    return this.application ? this.application.version : '';
   }
   get serviceUrl() {
-    return this.application.serviceUrl ? this.application.serviceUrl : '';
+    return this.info.registration ? this.info.registration.serviceUrl : '';
   }
   get build() {
-    return this.application.info ? this.application.info.build : {};
+    return this.application.build ? this.application.build:{};
   }
   get git() {
-    return this.application.info ? this.application.info.git : {};
+    return this.application.git ? this.application.git : {};
   }
 }
 </script>

@@ -1,44 +1,48 @@
 <template>
 <div class="serv-list-i">
-  <p class="sm grey mb5">{{data.serviceUrl}}</p>
-  <header class="serv-list-i-header mb10">
-    <img src="http://spring.io/img/homepage/icon-spring-framework.svg" class="img mr10">
-    <div>
-      <h4 class="ell"><span class="cp" @click="$router.push(`/services/${data.id}`)">{{data.name}}</span></h4>
-      <p class="sm grey ell">{{data.metadata.GROUP}} - {{data.metadata.VERSION}}</p>
-    </div>
-  </header>
-  <div class="mb10 clear">
-    <div class="serv-list-i-num l">
-      <h1 class="num">
-        <span>313</span>
-        <Icon type="md-arrow-dropup" size="14" color="#18b566"/>
-      </h1>
-      <div class="sm grey">Up</div>
-    </div>
-    <div class="serv-list-i-num r">
-      <h1 class="num">
-        <span>25</span>
-        <Icon type="md-remove" size="14" color="#808695"/>
-      </h1>
-      <div class="sm grey">Offline</div>
-    </div>
-    <div class="tc">
-      <div class="serv-list-i-num">
-        <h1 class="num">
-          <span>12</span>
-          <Icon type="md-arrow-dropdown" size="14" color="#ed4014"/>
-        </h1>
-        <div class="sm grey">Down</div>
+  <Tabs>
+    <TabPane v-for="instance in data.instances" :label="instance.id" :name="instance.id">
+      <a class="sm grey mb5">{{instance.registration.serviceUrl}}</a>
+      <header class="serv-list-i-header mb10">
+        <img src="http://spring.io/img/homepage/icon-spring-framework.svg" class="img mr10">
+        <div>
+          <h4 class="ell"><span class="cp" @click="$router.push(`/services/${instance.id}`)">{{instance.registration.name}}</span></h4>
+          <p class="sm grey ell" v-if="data.metadata">{{data.metadata.GROUP}} - {{data.metadata.VERSION}}</p>
+        </div>
+      </header>
+      <div class="mb10 clear">
+        <div class="serv-list-i-num l">
+          <h1 class="num">
+            <span>313</span>
+            <Icon type="md-arrow-dropup" size="14" color="#18b566"/>
+          </h1>
+          <div class="sm grey">Up</div>
+        </div>
+        <div class="serv-list-i-num r">
+          <h1 class="num">
+            <span>25</span>
+            <Icon type="md-remove" size="14" color="#808695"/>
+          </h1>
+          <div class="sm grey">Offline</div>
+        </div>
+        <div class="tc">
+          <div class="serv-list-i-num">
+            <h1 class="num">
+              <span>12</span>
+              <Icon type="md-arrow-dropdown" size="14" color="#ed4014"/>
+            </h1>
+            <div class="sm grey">Down</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <ServChartState/>
-  <ServChartThread v-if="show"/>
-  <ServChartHeap v-if="show"/>
-  <div class="tc">
-    <Icon class="cp" style="padding:2px 5px;" :type="show?'ios-arrow-up':'ios-arrow-down'" @click="show = !show"/>
-  </div>
+      <ServChartState/>
+      <ServChartThread v-if="show"/>
+      <ServChartHeap v-if="show"/>
+      <div class="tc">
+        <Icon class="cp" style="padding:2px 5px;" :type="show?'ios-arrow-up':'ios-arrow-down'" @click="show = !show"/>
+      </div>
+    </TabPane>
+  </Tabs>
 </div>
 </template>
 

@@ -8,7 +8,7 @@
         <input type="text" class="rk-trace-input mr15" v-model="copy" v-if="switchType">
         <button class="rk-trace-change mr15" v-if="switchType" @click="handleSearch">Search</button>
         <select v-else class="mr15" v-model="traceId" style="border: 0; outline: none;">
-          <option v-for="i in this.$route.query.traces.split('&')" :key="i" :value='i'>{{i}}</option>
+          <option v-if="this.$route.query.traces" v-for="i in this.$route.query.traces.split('&')" :key="i" :value='i'>{{i}}</option>
         </select>
         <Icon type="md-swap" size="18" class="rk-trace-switch" :class="{'change':switchType}" @click="switchChange"/>
       </div>
@@ -71,7 +71,9 @@ export default class Trace extends Vue {
     this.CLEAR_TRACE();
   }
   created() {
-    this.traceId = this.$route.query.traces.split('&')[0];
+    // if(this.$route.query && this.$route.query.traces != undefined){
+    //   this.traceId = this.$route.query.traces.split('&')[0];
+    // }
   }
 }
 </script>
