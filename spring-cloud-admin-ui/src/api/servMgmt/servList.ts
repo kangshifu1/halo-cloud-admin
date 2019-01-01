@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-const tag = 'http://localhost:8081';
+const tag = '/api';
 
 // 获取服务列表
 export const getServList = (): AxiosPromise<any> => {
@@ -7,9 +7,9 @@ export const getServList = (): AxiosPromise<any> => {
 };
 // 获取服务 detail
 export const getApplication = (appId): AxiosPromise<any> => {
-  return axios.get(`${tag}/applications/${appId}/`);
+  return axios.get(`${tag}/instances/${appId}/actuator/info`);
 };
 // 获取服务info
 export const getInfo = (appId): AxiosPromise<any> => {
-  return axios.get(`${tag}/applications/${appId}/info`);
+  return axios.get(`${tag}/instances/${appId}`);
 };
