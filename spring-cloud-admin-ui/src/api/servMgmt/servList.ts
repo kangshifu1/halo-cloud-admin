@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-const tag = '/api';
+const tag = 'http://localhost:8081';
 
 // 获取服务列表
 export const getServList = (): AxiosPromise<any> => {
