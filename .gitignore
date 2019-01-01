@@ -18,7 +18,6 @@ target
 
 ### BUILD ###
 nbproject/private/
-build/
 nbbuild/
 dist/
 nbdist/
