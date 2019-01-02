@@ -49,11 +49,20 @@ export default [
         },
         children: [
             {
-                path: '/test_page',
+                path: 'test_page',
                 name: 'test_page',
                 meta: {
                     icon: 'md-notifications',
                     title: '测试2'
+                },
+                component: () => import('@/views/test/Test.vue')
+            },
+            {
+                path: 'drag_list_page',
+                name: 'drag_list_page',
+                meta: {
+                    icon: 'ios-infinite',
+                    title: '拖拽列表'
                 },
                 component: () => import('@/views/test/Test.vue')
             }

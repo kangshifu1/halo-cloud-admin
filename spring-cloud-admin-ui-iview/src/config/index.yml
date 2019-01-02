@@ -1,0 +1,5 @@
+production:
+  API_KEY: 123456
+
+development:
+  API_KEY: 654321
