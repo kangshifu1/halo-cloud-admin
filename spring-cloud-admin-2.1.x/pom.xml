@@ -10,12 +10,12 @@
 	</parent>
 
 	<groupId>cn.springcloud.admin</groupId>
-	<artifactId>spring-cloud-admin-sample</artifactId>
+	<artifactId>spring-cloud-admin-2.1.x</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 
-	<name>spring-cloud-admin-sample</name>
+	<name>spring-cloud-admin-2.1.x</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
