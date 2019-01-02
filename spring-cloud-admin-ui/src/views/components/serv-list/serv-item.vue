@@ -1,7 +1,7 @@
 <template>
 <div class="serv-list-i">
   <Tabs>
-    <TabPane v-for="instance in data.instances" :label="instance.id" :name="instance.id">
+    <TabPane v-for="instance in data.instances" :key="instance.id" :label="instance.id" :name="instance.id">
       <a class="sm grey mb5">{{instance.registration.serviceUrl}}</a>
       <header class="serv-list-i-header mb10">
         <img src="http://spring.io/img/homepage/icon-spring-framework.svg" class="img mr10">
