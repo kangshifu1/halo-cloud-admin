@@ -134,14 +134,15 @@
             },
             handleCloseTag (res, type, route) {
                 if (type === 'all') {
-                    this.turnToPage(this.$config.homeName)
+                    this.turnToPage(this.$config.homeName);
+                    //closeList = this.tagNavList.filter(item=> item.name !== this.$config.homeName);
                 } else if (routeEqual(this.$route, route)) {
                     if (type !== 'others') {
                         const nextRoute = getNextRoute(this.tagNavList, route)
                         this.$router.push(nextRoute)
                     }
+
                 }
-                this.closeTag(route)
                 this.setTagNavList(res)
             },
             handleClick (item) {

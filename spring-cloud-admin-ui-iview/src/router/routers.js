@@ -40,31 +40,31 @@ export default [
             }
         ]
     }, {
-        path: '/test',
-        name: 'test',
+        path: '/serve',
+        name: 'serve',
         component: Main,
         meta: {
             icon: 'logo-buffer',
-            title: '测试1'
+            title: '服务管理'
         },
         children: [
             {
-                path: 'test_page',
-                name: 'test_page',
+                path: 'list',
+                name: 'serve_list',
                 meta: {
                     icon: 'md-notifications',
-                    title: '测试2'
+                    title: '服务列表'
                 },
                 component: () => import('@/views/test/Test.vue')
             },
             {
-                path: 'drag_list_page',
-                name: 'drag_list_page',
+                path: 'list1',
+                name: 'serve_list1',
                 meta: {
-                    icon: 'ios-infinite',
-                    title: '拖拽列表'
+                    icon: 'md-notifications',
+                    title: '测试一下'
                 },
-                component: () => import('@/views/test/Test.vue')
+                component: () => import('@/views/test2/Test.vue')
             }
         ]
     }
