@@ -7,14 +7,7 @@ import store from './store'
 
 import i18n from '@/locale'
 import config from '@/config'
-import * as a from '@/config/index.yml';
 
-// 测试yaml 配置文件
-console.log(a);
-
-// 实际打包时应该不引入mock
-/* eslint-disable */
-if (process.env.NODE_ENV !== 'production') require('@/mock')
 
 import './style/index.less'
 

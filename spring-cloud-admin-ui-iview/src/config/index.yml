@@ -1,5 +1,5 @@
 production:
-  API_KEY: 123456
+  basePath: ''
 
 development:
-  API_KEY: 654321
+  basePath: "/api"
