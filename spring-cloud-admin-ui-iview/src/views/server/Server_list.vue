@@ -1,12 +1,31 @@
 <template>
     <div class="server_list_warp">
-        <div class="server_list_item" v-for="app in this.applications">
-            <header class="server_list_header">
-                <img src="http://spring.io/img/homepage/icon-spring-framework.svg" class="server_list_image">
-                <p class="title">{{app.name}}</p>
+        <div class="server_item" v-for="app in this.applications">
+            <header class="server_header">
+                <div class="image">
+                    <img src="http://spring.io/img/homepage/icon-spring-framework.svg">
+                </div>
+                <div class="header-info">
+                    <p class="title">{{app.name}}</p>
+                    <p class="other">owner:某某事业部</p>
+                    <p class="other">project:某某事业部渠道平台</p>
+                </div>
             </header>
-            <div class="server_list_body">
-                <div class="">状态:{{app.status}}</div>
+            <div class="server_body">
+                <div class="body-info">
+                    <div class="server-status">
+                        <span>status</span>
+                        <span :class="{'up': (app.status === 'UP')}">{{app.status}}</span>
+                    </div>
+                    <div class="server-group">
+                        <span>group</span>
+                        <span>分组</span>
+                    </div>
+                    <div class="server-version">
+                        <span>version</span>
+                        <span>1.5.7.RELEASE</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -36,35 +55,5 @@
 </script>
 
 <style lang="less">
-    .server_list_warp{
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        .server_list_item{
-            cursor: pointer;
-            width: calc(33.3% - 10px);
-            padding: 15px 20px 5px;
-            background: #fff;
-            border: 1px solid #e4e7ed;
-            border-top: 3px solid #18b566;
-            border-radius: 4px;
-            margin: 0 5px 15px;
-            .server_list_header{
-                display: flex;
-                .server_list_image{
-                    width: 32px;
-                    height: 32px;
-                }
-                .title{
-                    font-size: 12px;
-                    line-height: 32px;
-                    margin-left: 4px;
-                }
-            }
-            .server_list_body{
-                display: block;
-
-            }
-        }
-    }
+    @import "../../style/server.less";
 </style>
