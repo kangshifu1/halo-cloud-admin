@@ -55,7 +55,7 @@ export default [
                     icon: 'md-notifications',
                     title: '服务列表'
                 },
-                component: () => import('@/views/test/Test.vue')
+                component: () => import('@/views/server/Server_list.vue')
             },
             {
                 path: 'list1',

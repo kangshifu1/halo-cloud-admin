@@ -1,6 +1,6 @@
 import httpRequest from '@/libs/HttpRequest';
 
-export const applications = ()=> {
+export const getApplications = ()=> {
     return httpRequest.request({
         method: 'get',
         url: '/applications'
